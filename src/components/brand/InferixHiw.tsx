@@ -113,7 +113,7 @@ export default function InferixHiw() {
 
   return (
     <div className={styles.root} role="img" aria-label={ARIA}>
-      <div className={styles.col}>
+      <div className={`${styles.col} ${styles.colSources}`}>
         <p className={styles.colLabel}>Your AI stack</p>
         <ul className={styles.sourceList}>
           {SOURCES.map((s) => (
@@ -145,6 +145,10 @@ export default function InferixHiw() {
             />
           ))}
       </div>
+
+      <p className={`${styles.mobileFlow} ${styles.mobileFlowIn}`} aria-hidden>
+        ↓ into Inferix
+      </p>
 
       <div className={styles.hub}>
         <div className={styles.hubCard}>
@@ -187,7 +191,11 @@ export default function InferixHiw() {
           ))}
       </div>
 
-      <div className={styles.col}>
+      <p className={`${styles.mobileFlow} ${styles.mobileFlowOut}`} aria-hidden>
+        ↓ to destinations
+      </p>
+
+      <div className={`${styles.col} ${styles.colDest}`}>
         <p className={styles.colLabel}>Destinations</p>
         <div className={styles.destStack}>
           {DESTINATIONS.map((group) => (

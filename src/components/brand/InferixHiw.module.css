@@ -282,6 +282,10 @@
   text-overflow: ellipsis;
 }
 
+.mobileFlow {
+  display: none;
+}
+
 @media (max-width: 1200px) {
   .logoName {
     display: none;
@@ -296,13 +300,17 @@
 @media (max-width: 900px) {
   .root {
     grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 20px 16px;
-    overflow: hidden;
+    gap: 12px;
+    padding: 18px 14px;
+    overflow: visible;
   }
 
   .col {
     width: 100%;
+  }
+
+  .colSources {
+    order: 1;
   }
 
   .colLabel {
@@ -325,8 +333,27 @@
     display: none;
   }
 
+  .mobileFlow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 2px 0;
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: var(--inferix-accent-soft, #e6e6ff);
+    color: var(--inferix-accent, #5b3fd1);
+    font-size: 12px;
+    font-weight: 650;
+    letter-spacing: 0.02em;
+  }
+
+  .mobileFlowIn {
+    order: 2;
+  }
+
   .hub {
-    order: -1;
+    order: 3;
     margin-top: 0;
     min-height: 0;
     width: 100%;
@@ -342,6 +369,19 @@
     flex-wrap: wrap;
   }
 
+  .pill {
+    flex: 1 1 auto;
+    min-width: calc(33% - 8px);
+  }
+
+  .mobileFlowOut {
+    order: 4;
+  }
+
+  .colDest {
+    order: 5;
+  }
+
   .destStack {
     display: flex;
     flex-direction: column;
@@ -355,16 +395,18 @@
   }
 
   .logoGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .logoCell {
     justify-content: flex-start;
+    padding: 8px 10px;
   }
-}
 
-@media (max-width: 420px) {
-  .logoGrid {
-    grid-template-columns: 1fr;
+  .logoName {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    font-size: 12px;
   }
 }
