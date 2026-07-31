@@ -316,24 +316,77 @@
 @media (max-width: 900px) {
   .docs {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
+    padding: 28px var(--inferix-page-gutter, 16px) 64px;
   }
 
   .side {
     position: static;
     max-height: none;
     border-bottom: 1px solid var(--inferix-line);
-    padding-bottom: 16px;
+    padding-bottom: 12px;
     overflow: visible;
   }
 
   .sideGroup {
-    margin-bottom: 14px;
+    margin-bottom: 12px;
+  }
+
+  .sideTitle {
+    margin-bottom: 6px;
   }
 
   .side ul {
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 4px;
+    flex-wrap: nowrap;
+    gap: 6px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+  }
+
+  .side a,
+  .sideSoon {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 8px 12px;
+    font-size: 13px;
+    background: var(--inferix-surface);
+    border: 1px solid var(--inferix-line);
+  }
+
+  .h1 {
+    font-size: clamp(26px, 8vw, 34px);
+  }
+
+  .intro {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+
+  .tableWrap {
+    margin-left: -4px;
+    margin-right: -4px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .code {
+    font-size: 12px;
+    padding: 14px 14px;
+  }
+
+  .next {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .next a {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
   }
 }

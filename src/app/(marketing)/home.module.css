@@ -841,13 +841,17 @@
 }
 
 @media (max-width: 980px) {
+  .hero {
+    padding: 32px 0 28px;
+  }
+
   .heroInner {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 28px;
   }
 
   .copy {
-    max-width: 640px;
+    max-width: none;
     text-align: center;
     align-items: center;
   }
@@ -858,16 +862,65 @@
 
   .heroBtns {
     justify-content: center;
+    width: 100%;
+  }
+
+  .heroBtns a {
+    flex: 1 1 auto;
+    min-width: 140px;
+    justify-content: center;
   }
 
   .headline br {
     display: none;
   }
 
+  .why {
+    padding: 48px 0;
+  }
+
+  .whyTitle {
+    margin-bottom: 28px;
+    font-size: clamp(22px, 6vw, 30px);
+  }
+
   .whyItem {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
     align-items: stretch;
+    padding: 28px 0;
+  }
+
+  .whyItemTitle {
+    font-size: clamp(20px, 5.5vw, 24px);
+  }
+
+  .whyBody {
+    max-width: none;
+    font-size: 15px;
+  }
+
+  .whyBullets {
+    max-width: none;
+  }
+
+  .whyPanel {
+    max-width: 100%;
+  }
+
+  .whyPanelTabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .whyPanelTabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .whyPanelTab {
+    flex-shrink: 0;
   }
 
   .whyPanelStats {
@@ -877,6 +930,10 @@
   .whyPanelRows li {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+
+  .whyPanelStatVal {
+    font-size: 13px;
   }
 }
 
@@ -893,9 +950,21 @@
     grid-template-columns: 1fr;
     gap: 6px;
   }
+
+  .targetsTitle {
+    font-size: clamp(24px, 7vw, 34px);
+  }
 }
 
 @media (max-width: 560px) {
+  .heroBtns {
+    flex-direction: column;
+  }
+
+  .heroBtns a {
+    width: 100%;
+  }
+
   .productRow {
     grid-template-columns: 1fr;
   }
@@ -909,6 +978,19 @@
   }
 
   .headline {
-    font-size: 32px;
+    font-size: clamp(28px, 9vw, 34px);
+  }
+
+  .support {
+    font-size: 15px;
+  }
+
+  .whyPanelHead {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .marqueeTrack {
+    gap: 28px;
   }
 }

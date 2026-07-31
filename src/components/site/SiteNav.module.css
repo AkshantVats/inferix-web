@@ -224,11 +224,29 @@
 }
 
 @media (max-width: 899px) {
+  .banner {
+    font-size: 12px;
+  }
+
+  .bannerLink {
+    padding: 8px 12px;
+    line-height: 1.35;
+  }
+
+  .inner {
+    padding: 10px var(--inferix-page-gutter, 16px);
+    gap: 12px;
+  }
+
   .desktop {
     display: none;
   }
 
   .pricing {
+    display: none;
+  }
+
+  .github {
     display: none;
   }
 

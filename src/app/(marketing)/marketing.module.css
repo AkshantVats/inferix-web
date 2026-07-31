@@ -158,10 +158,28 @@
 
 @media (max-width: 767px) {
   .section {
-    padding: 56px 0;
+    padding: 48px 0;
+  }
+
+  .sectionTight {
+    padding: 40px 0;
   }
 
   .h2 {
-    font-size: 28px;
+    font-size: clamp(24px, 7vw, 28px);
+  }
+
+  .lead {
+    font-size: 15px;
+  }
+
+  .btnRow {
+    width: 100%;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    justify-content: center;
   }
 }
