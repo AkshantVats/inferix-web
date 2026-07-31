@@ -2,6 +2,9 @@
 
 Marketing site + brand kit for **Inferix** — route inference, catch drift, retrain. Control plane for AI inference and agents.
 
+- Suite map: https://github.com/AkshantVats/inferix
+- This repo: https://github.com/AkshantVats/inferix-web
+
 ## Look
 
 **Lab Light** — soft lavender canvas, Fraunces brand wordmark, Geist UI, electric violet accent (`#5B3FD1`).
