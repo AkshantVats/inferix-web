@@ -42,10 +42,29 @@
 }
 
 .whyGrid li {
-  padding: 20px 18px;
+  padding: 0;
   border-radius: var(--inferix-radius-lg);
   border: 1px solid var(--inferix-line);
   background: var(--inferix-surface);
+  overflow: hidden;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.whyGrid li:hover {
+  border-color: var(--inferix-accent-muted, #9b8ae8);
+  box-shadow: var(--inferix-shadow-sm);
+}
+
+.whyCardLink {
+  display: block;
+  padding: 20px 18px;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.whyCardLink:hover {
+  text-decoration: none;
 }
 
 .whyNum {
@@ -63,6 +82,7 @@
   font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.02em;
+  color: var(--inferix-ink);
 }
 
 .whyGrid p {
@@ -70,6 +90,16 @@
   font-size: 14px;
   line-height: 1.5;
   color: var(--inferix-muted);
+}
+
+.whyProduct {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--inferix-accent);
 }
 
 .story {
@@ -132,6 +162,7 @@
 }
 
 .card {
+  scroll-margin-top: 100px;
   padding: 24px;
   border-radius: var(--inferix-radius-xl);
   border: 1px solid var(--inferix-line);
@@ -177,6 +208,17 @@
 
 .repoLink:hover {
   text-decoration: underline;
+}
+
+.cardLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.cardLinks .repoLink {
+  margin-top: 0;
 }
 
 .clients {

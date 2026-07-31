@@ -17,7 +17,8 @@ export default function ProductPage() {
         <div className={m.wrap}>
           <p className={m.kicker}>Product</p>
           <h1 className={styles.title}>
-            Control agents and inference —{" "}
+            Control agents and inference —
+            <br />
             <span className={styles.titleAccent}>in one place</span>
           </h1>
           <p className={styles.support}>
@@ -45,9 +46,12 @@ export default function ProductPage() {
           <ul className={styles.whyGrid}>
             {WHY_PILLARS.map((p) => (
               <li key={p.num}>
-                <span className={styles.whyNum}>{p.num}</span>
-                <h3>{p.title}</h3>
-                <p>{p.body}</p>
+                <Link href={p.href} className={styles.whyCardLink}>
+                  <span className={styles.whyNum}>{p.num}</span>
+                  <h3>{p.title}</h3>
+                  <p>{p.body}</p>
+                  <span className={styles.whyProduct}>{p.product}</span>
+                </Link>
               </li>
             ))}
           </ul>
@@ -110,14 +114,22 @@ export default function ProductPage() {
                   </div>
                 </div>
                 <p className={styles.detail}>{p.detail}</p>
-                <a
-                  href={p.repo}
-                  className={styles.repoLink}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View on GitHub →
-                </a>
+                <div className={styles.cardLinks}>
+                  <a
+                    href={`/docs/products/${p.slug}`}
+                    className={styles.repoLink}
+                  >
+                    Read docs →
+                  </a>
+                  <a
+                    href={p.repo}
+                    className={styles.repoLink}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    GitHub →
+                  </a>
+                </div>
               </li>
             ))}
           </ul>

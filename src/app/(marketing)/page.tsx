@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import InferixHiw from "@/components/brand/InferixHiw";
+import WhyLoopSection from "@/components/site/WhyLoopSection";
 import { GITHUB } from "@/lib/github";
-import { PRODUCTS, POSITIONING, WHY_PILLARS } from "@/lib/products";
+import { PRODUCTS, POSITIONING } from "@/lib/products";
 import m from "./marketing.module.css";
 import styles from "./home.module.css";
 
@@ -86,25 +87,7 @@ export default function HomePage() {
             <span className={m.accent}>see, route, and improve</span> every request.
           </h2>
 
-          <ol className={styles.whyList}>
-            {WHY_PILLARS.map((pillar) => (
-              <li key={pillar.num} className={styles.whyItem}>
-                <div className={styles.whyCopy}>
-                  <span className={styles.whyNum}>{pillar.num}</span>
-                  <h3 className={styles.whyItemTitle}>{pillar.title}</h3>
-                  <p className={styles.whyBody}>{pillar.body}</p>
-                  <p className={styles.whyProduct}>{pillar.product}</p>
-                </div>
-                <div className={styles.whyMock} aria-hidden>
-                  {pillar.mock.map((chip) => (
-                    <span key={chip} className={styles.whyChip}>
-                      {chip}
-                    </span>
-                  ))}
-                </div>
-              </li>
-            ))}
-          </ol>
+          <WhyLoopSection />
         </div>
       </section>
 
@@ -123,11 +106,13 @@ export default function HomePage() {
           <ul className={styles.productRow}>
             {PRODUCTS.map((p) => (
               <li key={p.name} className={styles.productItem}>
-                <img src={p.icon} alt="" width={28} height={28} />
-                <div>
-                  <p className={styles.productName}>{p.name}</p>
-                  <p className={styles.productRole}>{p.role}</p>
-                </div>
+                <Link href={`/docs/products/${p.slug}`} className={styles.productLink}>
+                  <img src={p.icon} alt="" width={28} height={28} />
+                  <div>
+                    <p className={styles.productName}>{p.name}</p>
+                    <p className={styles.productRole}>{p.role}</p>
+                  </div>
+                </Link>
               </li>
             ))}
           </ul>

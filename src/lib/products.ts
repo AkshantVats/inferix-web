@@ -68,6 +68,7 @@ export const WHY_PILLARS = [
     title: "See every call",
     body: "Latency, cost, tokens, and errors for agents and models — one dashboard, not five tools.",
     product: "LensAI",
+    href: "/docs/products/lensai",
     mock: ["p95 Latency", "Cost per call", "Error rate"],
   },
   {
@@ -75,6 +76,7 @@ export const WHY_PILLARS = [
     title: "Trace the whole agent",
     body: "Follow tools and model steps in one graph. Debug a bad run without guessing which hop failed.",
     product: "TraceForge",
+    href: "/docs/products/traceforge",
     mock: ["Tool call", "Model hop", "Final response"],
   },
   {
@@ -82,6 +84,7 @@ export const WHY_PILLARS = [
     title: "Route by policy",
     body: "Cheap owned SLM for simple asks. Strong path or provider when you need it. Policy decides — not a spreadsheet.",
     product: "RouteIQ",
+    href: "/docs/products/routeiq",
     mock: ["Owned SLM", "Strong path", "Provider fallback"],
   },
   {
@@ -89,6 +92,7 @@ export const WHY_PILLARS = [
     title: "Catch quality drift",
     body: "Alert when answers go bad versus a teacher or golden set. Know before users file tickets.",
     product: "DriftWatch",
+    href: "/docs/products/driftwatch",
     mock: ["Quality drop", "Drift alert", "Golden set"],
   },
   {
@@ -96,6 +100,7 @@ export const WHY_PILLARS = [
     title: "Improve and retrain",
     body: "Feed FineForge. Ship a better model. Promote or roll back without guessing.",
     product: "FineForge",
+    href: "/docs/products/fineforge",
     mock: ["Start retrain", "Promote version", "Safe rollback"],
   },
 ] as const;

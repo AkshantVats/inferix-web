@@ -55,17 +55,17 @@ const DESTINATIONS: {
   },
 ];
 
-/** Wire paths in SVG viewBox units (120×280). */
+/** Wire paths in SVG viewBox units (120×280). Y = centers of 3 equal rails. */
 const IN_WIRES = [
-  "M0 40 C55 40, 55 140, 120 140",
+  "M0 47 C55 47, 55 140, 120 140",
   "M0 140 C55 140, 55 140, 120 140",
-  "M0 240 C55 240, 55 140, 120 140",
+  "M0 233 C55 233, 55 140, 120 140",
 ] as const;
 
 const OUT_WIRES = [
-  "M0 140 C55 140, 55 48, 120 48",
+  "M0 140 C55 140, 55 47, 120 47",
   "M0 140 C55 140, 55 140, 120 140",
-  "M0 140 C55 140, 55 232, 120 232",
+  "M0 140 C55 140, 55 233, 120 233",
 ] as const;
 
 /**
@@ -73,19 +73,20 @@ const OUT_WIRES = [
  * Kept separate from SVG wires so dots stay circular (SVG preserveAspectRatio="none" squashes shapes).
  */
 const IN_BALLS = [
-  "M0 40 C22 40, 22 140, 48 140",
+  "M0 47 C22 47, 22 140, 48 140",
   "M0 140 C22 140, 22 140, 48 140",
-  "M0 240 C22 240, 22 140, 48 140",
+  "M0 233 C22 233, 22 140, 48 140",
 ] as const;
 
 const OUT_BALLS = [
-  "M0 140 C22 140, 22 48, 48 48",
+  "M0 140 C22 140, 22 47, 48 47",
   "M0 140 C22 140, 22 140, 48 140",
-  "M0 140 C22 140, 22 232, 48 232",
+  "M0 140 C22 140, 22 233, 48 233",
 ] as const;
 
-const BALL_DELAYS = ["0s", "0.45s", "0.9s"] as const;
-const BALL_OUT_DELAYS = ["0.2s", "0.65s", "1.1s"] as const;
+/** Same phase on both sides — evenly spaced over one 2.8s loop. */
+const BALL_DELAYS = ["0s", "0.933s", "1.867s"] as const;
+const BALL_OUT_DELAYS = ["0s", "0.933s", "1.867s"] as const;
 
 const ARIA =
   "Workloads — humans, agents, and machines — flow into the Inferix control plane spanning LensAI, TraceForge, RouteIQ, DriftWatch, and FineForge, then out to owned models, providers, and agents.";
@@ -126,7 +127,7 @@ export default function InferixHiw() {
         </ul>
       </div>
 
-      <div className={styles.connectors} aria-hidden>
+      <div className={`${styles.connectors} ${styles.connectorsIn}`} aria-hidden>
         <svg className={styles.connectorSvg} viewBox="0 0 120 280" preserveAspectRatio="none">
           {IN_WIRES.map((d) => (
             <path key={d} className={styles.wire} d={d} />
@@ -167,7 +168,7 @@ export default function InferixHiw() {
         </div>
       </div>
 
-      <div className={styles.connectors} aria-hidden>
+      <div className={`${styles.connectors} ${styles.connectorsOut}`} aria-hidden>
         <svg className={styles.connectorSvg} viewBox="0 0 120 280" preserveAspectRatio="none">
           {OUT_WIRES.map((d) => (
             <path key={d} className={styles.wire} d={d} />

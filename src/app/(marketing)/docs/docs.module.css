@@ -1,10 +1,10 @@
 .docs {
   width: 100%;
-  max-width: var(--inferix-content-max, 1120px);
+  max-width: 1180px;
   margin: 0 auto;
   padding: 40px var(--inferix-page-gutter, 24px) 80px;
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 220px minmax(0, 1fr);
   gap: 48px;
   align-items: start;
 }
@@ -13,11 +13,17 @@
   position: sticky;
   top: 88px;
   padding: 8px 0;
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+}
+
+.sideGroup {
+  margin-bottom: 22px;
 }
 
 .sideTitle {
-  margin: 0 0 12px;
-  font-size: 12px;
+  margin: 0 0 8px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -30,15 +36,15 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .side a,
 .sideSoon {
   display: block;
-  padding: 8px 10px;
+  padding: 7px 10px;
   border-radius: var(--inferix-radius-md);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   text-decoration: none;
 }
@@ -67,6 +73,15 @@
   min-width: 0;
 }
 
+.article a {
+  color: var(--inferix-accent);
+  font-weight: 500;
+}
+
+.article a:hover {
+  text-decoration: underline;
+}
+
 .h1 {
   margin: 0 0 12px;
   font-family: var(--inferix-font-display, var(--inferix-font-ui)), system-ui, sans-serif;
@@ -74,11 +89,12 @@
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.15;
+  color: var(--inferix-ink);
 }
 
 .intro {
   margin: 0 0 36px;
-  max-width: 560px;
+  max-width: 620px;
   color: var(--inferix-muted);
   font-size: 16px;
   line-height: 1.55;
@@ -93,13 +109,21 @@
   font-size: 20px;
   font-weight: 600;
   letter-spacing: -0.02em;
+  color: var(--inferix-ink);
+}
+
+.block h3 {
+  margin: 20px 0 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--inferix-ink);
 }
 
 .block p {
   margin: 0 0 12px;
   color: var(--inferix-muted);
   font-size: 15px;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .code {
@@ -113,31 +137,44 @@
   font-family: var(--inferix-font-mono);
   font-size: 13px;
   line-height: 1.55;
+  white-space: pre;
 }
 
-.code code {
+/* If any page still nests <code> in a dark pre, strip chip paint */
+.code code,
+.callout .code code,
+.calloutBody .code code,
+.article .code code {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-size: inherit;
   font-family: inherit;
-  white-space: pre;
 }
 
 .note {
   font-size: 14px !important;
 }
 
-.note code {
+/* Inline chips only (direct / paragraph / list) — not descendants of .code */
+:where(.note, .block p, .block li, .bullets, .table, .calloutBody, .calloutBody p, .calloutBody li)
+  > code {
   padding: 1px 6px;
   border-radius: 4px;
   background: var(--inferix-accent-soft);
   color: var(--inferix-accent);
   font-size: 12px;
+  font-family: var(--inferix-font-mono);
 }
 
 .bullets {
-  margin: 0;
+  margin: 0 0 12px;
   padding-left: 20px;
   color: var(--inferix-muted);
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .bullets li {
@@ -146,6 +183,117 @@
 
 .bullets strong {
   color: var(--inferix-ink);
+}
+
+.tableWrap {
+  margin: 0 0 16px;
+  overflow-x: auto;
+  border: 1px solid var(--inferix-line);
+  border-radius: var(--inferix-radius-lg);
+  background: var(--inferix-surface);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th,
+.table td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--inferix-line);
+  vertical-align: top;
+}
+
+.table th {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--inferix-muted);
+  background: var(--inferix-bg);
+}
+
+.table td {
+  color: var(--inferix-muted);
+  line-height: 1.5;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table strong {
+  color: var(--inferix-ink);
+  font-weight: 600;
+}
+
+.callout {
+  margin: 0 0 16px;
+  padding: 14px 16px;
+  border-radius: var(--inferix-radius-lg);
+  border: 1px solid var(--inferix-line);
+  background: var(--inferix-accent-soft);
+}
+
+.calloutTitle {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--inferix-accent);
+}
+
+.calloutBody {
+  color: var(--inferix-ink);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.calloutBody p {
+  margin: 0;
+  color: inherit;
+}
+
+.cards {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  border-radius: var(--inferix-radius-lg);
+  border: 1px solid var(--inferix-line);
+  background: var(--inferix-surface);
+  text-decoration: none !important;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.card:hover {
+  border-color: var(--inferix-accent-muted, #9b8ae8);
+  box-shadow: var(--inferix-shadow-sm);
+}
+
+.cardTitle {
+  font-size: 15px;
+  font-weight: 650;
+  color: var(--inferix-ink);
+}
+
+.cardBody {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--inferix-muted);
 }
 
 .next {
@@ -165,7 +313,7 @@
   font-size: 15px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .docs {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -173,12 +321,19 @@
 
   .side {
     position: static;
+    max-height: none;
     border-bottom: 1px solid var(--inferix-line);
     padding-bottom: 16px;
+    overflow: visible;
+  }
+
+  .sideGroup {
+    margin-bottom: 14px;
   }
 
   .side ul {
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 4px;
   }
 }

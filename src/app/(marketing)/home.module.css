@@ -165,10 +165,10 @@
 
 .whyItem {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(180px, 0.7fr);
-  gap: 24px 40px;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 1.1fr);
+  gap: 28px 48px;
   align-items: center;
-  padding: 28px 0;
+  padding: 40px 0;
   border-top: 1px solid var(--inferix-line);
 }
 
@@ -188,22 +188,69 @@
 
 .whyItemTitle {
   margin: 0 0 8px;
-  font-size: 22px;
+  font-size: clamp(22px, 2.4vw, 28px);
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--inferix-ink);
+  line-height: 1.25;
+}
+
+.whyItemTitle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.whyItemTitle a:hover {
+  color: var(--inferix-accent);
+}
+
+.whyAccent {
+  color: var(--inferix-accent);
 }
 
 .whyBody {
-  margin: 0;
+  margin: 0 0 16px;
   max-width: 520px;
   font-size: 16px;
   line-height: 1.55;
   color: var(--inferix-muted);
 }
 
+.whyBullets {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 540px;
+}
+
+.whyBullets li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--inferix-ink);
+}
+
+.whyCheck {
+  flex-shrink: 0;
+  margin-top: 1px;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--inferix-accent-soft);
+  color: var(--inferix-accent);
+  font-size: 11px;
+  font-weight: 700;
+}
+
 .whyProduct {
-  margin: 12px 0 0;
+  margin: 0;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -211,28 +258,174 @@
   color: var(--inferix-accent-muted);
 }
 
-.whyMock {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 20px;
-  border-radius: var(--inferix-radius-xl);
-  border: 1px solid var(--inferix-line);
-  background: var(--inferix-bg);
-  box-shadow: var(--inferix-shadow-sm);
-  min-height: 88px;
-  align-items: center;
-  justify-content: center;
+.whyProduct a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.whyChip {
-  padding: 8px 12px;
-  border-radius: var(--inferix-radius-full);
+.whyProduct a:hover {
+  color: var(--inferix-accent);
+}
+
+/* LiteLLM-style product panel mock */
+.whyPanel {
+  display: block;
+  padding: 0;
+  border-radius: 14px;
   border: 1px solid var(--inferix-line);
-  background: var(--inferix-surface);
+  background: #ffffff;
+  box-shadow:
+    0 1px 2px rgba(39, 43, 55, 0.04),
+    0 12px 32px rgba(39, 43, 55, 0.08);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.whyPanel:hover {
+  border-color: var(--inferix-accent-muted, #9b8ae8);
+  box-shadow:
+    0 1px 2px rgba(39, 43, 55, 0.04),
+    0 16px 40px rgba(91, 63, 209, 0.12);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.whyPanelTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 8px 10px;
+  background: #f3f2f8;
+  border-bottom: 1px solid var(--inferix-line);
+}
+
+.whyPanelTab {
+  padding: 6px 10px;
+  border-radius: 8px;
   font-size: 12px;
+  font-weight: 500;
+  color: var(--inferix-muted);
+}
+
+.whyPanelTabActive {
+  background: #ffffff;
+  color: var(--inferix-accent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--inferix-accent) 35%, transparent);
   font-weight: 600;
+}
+
+.whyPanelHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 16px 12px;
+}
+
+.whyPanelTitle {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
   color: var(--inferix-ink);
+}
+
+.whyPanelSub {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--inferix-muted);
+  font-family: var(--inferix-font-mono);
+}
+
+.whyPanelStatus {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--inferix-accent-soft);
+  color: var(--inferix-accent);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.whyPanelStats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  padding: 0 16px 14px;
+}
+
+.whyPanelStat {
+  padding: 10px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--inferix-line);
+  background: #faf9fd;
+  text-align: left;
+}
+
+.whyPanelStatVal {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--inferix-ink);
+  letter-spacing: -0.02em;
+}
+
+.whyPanelStatLabel {
+  display: block;
+  margin-top: 2px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--inferix-muted);
+}
+
+.whyPanelRows {
+  list-style: none;
+  margin: 0;
+  padding: 0 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.whyPanelRows li {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--inferix-line);
+  background: #ffffff;
+}
+
+.whyPanelRowLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--inferix-muted);
+}
+
+.whyPanelTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.whyPanelTag {
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--inferix-line);
+  background: var(--inferix-accent-soft);
+  color: var(--inferix-ink);
+  font-size: 11px;
+  font-weight: 600;
 }
 
 /* ——— Product strip ——— */
@@ -271,20 +464,27 @@
 }
 
 .productItem {
+  padding: 0;
+  border-radius: var(--inferix-radius-lg);
+}
+
+.productLink {
   display: flex;
   align-items: flex-start;
   gap: 12px;
   padding: 16px 14px;
   border-radius: var(--inferix-radius-lg);
   border: 1px solid transparent;
+  text-decoration: none;
   transition:
     border-color var(--inferix-duration) var(--inferix-ease),
     background var(--inferix-duration) var(--inferix-ease);
 }
 
-.productItem:hover {
+.productLink:hover {
   border-color: var(--inferix-line);
   background: var(--inferix-surface);
+  text-decoration: none;
 }
 
 .productName {
@@ -666,6 +866,17 @@
 
   .whyItem {
     grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .whyPanelStats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .whyPanelRows li {
+    grid-template-columns: 1fr;
+    gap: 6px;
   }
 }
 

@@ -31,10 +31,16 @@ export default function SiteFooter() {
             <p className={styles.colTitle}>Docs</p>
             <ul className={styles.list}>
               <li>
+                <Link href="/docs">Docs home</Link>
+              </li>
+              <li>
                 <Link href="/docs/quickstart">Quick start</Link>
               </li>
               <li>
-                <Link href="/docs">Docs home</Link>
+                <Link href="/docs/guides">Guides</Link>
+              </li>
+              <li>
+                <Link href="/docs/api">API reference</Link>
               </li>
             </ul>
           </div>
