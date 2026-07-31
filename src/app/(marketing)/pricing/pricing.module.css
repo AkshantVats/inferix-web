@@ -1,0 +1,168 @@
+.hero {
+  padding-top: 56px;
+  padding-bottom: 24px;
+}
+
+.title {
+  margin: 0 0 14px;
+  font-family: var(--inferix-font-brand);
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.support {
+  margin: 0 0 20px;
+  max-width: 560px;
+  color: var(--inferix-muted);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.badge {
+  display: inline-block;
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: var(--inferix-radius-full);
+  background: var(--inferix-accent-soft);
+  color: var(--inferix-accent);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.tiers {
+  padding: 24px 0 48px;
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px;
+  border-radius: var(--inferix-radius-xl);
+  border: 1px solid var(--inferix-line);
+  background: var(--inferix-surface);
+  box-shadow: var(--inferix-shadow-sm);
+}
+
+.cardHighlight {
+  border-color: var(--inferix-accent-muted);
+  box-shadow: var(--inferix-shadow-md), 0 0 0 1px var(--inferix-accent-soft);
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--inferix-accent-soft) 55%, var(--inferix-surface)) 0%,
+    var(--inferix-surface) 40%
+  );
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.pill {
+  padding: 4px 8px;
+  border-radius: var(--inferix-radius-full);
+  background: var(--inferix-accent);
+  color: var(--inferix-ink-inverse);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.price {
+  margin: 0 0 8px;
+  font-family: var(--inferix-font-brand);
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.price span {
+  margin-left: 4px;
+  font-family: var(--inferix-font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--inferix-muted);
+}
+
+.blurb {
+  margin: 0 0 20px;
+  color: var(--inferix-muted);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 42px;
+}
+
+.features {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.features li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 14px;
+  color: var(--inferix-ink);
+  line-height: 1.4;
+}
+
+.features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--inferix-accent);
+  opacity: 0.7;
+}
+
+.card a {
+  align-self: stretch;
+  text-align: center;
+}
+
+.note {
+  border-top: 1px solid var(--inferix-line);
+  color: var(--inferix-muted);
+  font-size: 14px;
+}
+
+.note p {
+  margin: 0;
+  max-width: 640px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+}

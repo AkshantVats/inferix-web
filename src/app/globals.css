@@ -1,0 +1,57 @@
+@import "../../brand/tokens.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --inferix-content-max: 1120px;
+  --inferix-page-gutter: 24px;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #f4f3fb;
+  background: var(--inferix-bg, #f4f3fb);
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f4f3fb;
+  background: var(--inferix-bg, #f4f3fb);
+  color: #272b37;
+  color: var(--inferix-ink, #272b37);
+  font-family: var(--inferix-font-ui), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--inferix-accent, #5b3fd1);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--inferix-accent-hover, #4a32b0);
+}
+
+:focus-visible {
+  outline: 2px solid var(--inferix-focus, #5b3fd1);
+  outline-offset: 2px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+code,
+pre {
+  font-family: var(--inferix-font-mono), ui-monospace, monospace;
+}

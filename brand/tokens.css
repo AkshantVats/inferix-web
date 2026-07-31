@@ -1,0 +1,112 @@
+/**
+ * Inferix — Lab Light brand tokens
+ * Look B. LiteLLM-inspired classy palette: cool neutrals + electric violet.
+ * Source of truth for colour, type, space, radius, elevation.
+ * Approved Lab Light kit — use these tokens on all marketing surfaces.
+ */
+
+:root {
+  /* ——— Colour: canvas & text ——— */
+  --inferix-bg: #f4f3fb;
+  --inferix-surface: #ffffff;
+  --inferix-elevated: #ffffff;
+  --inferix-ink: #272b37;
+  --inferix-muted: #63666f;
+  --inferix-line: #d3d3d5;
+  --inferix-ink-inverse: #ffffff;
+
+  /* ——— Colour: brand accent (electric violet) ——— */
+  --inferix-accent: #5b3fd1;
+  --inferix-accent-hover: #4a32b0;
+  --inferix-accent-pressed: #3b2890;
+  --inferix-accent-soft: #e6e6ff;
+  --inferix-accent-muted: #7c6cf0;
+  --inferix-accent-glow: rgba(68, 58, 253, 0.28);
+
+  /* Accent ramp (optional UI fills / charts) */
+  --inferix-accent-50: #f4f3fb;
+  --inferix-accent-100: #e6e6ff;
+  --inferix-accent-200: #c8c4f5;
+  --inferix-accent-300: #9b8aeb;
+  --inferix-accent-400: #7c6cf0;
+  --inferix-accent-500: #5b3fd1;
+  --inferix-accent-600: #4a32b0;
+  --inferix-accent-700: #3b2890;
+  --inferix-accent-800: #2a1d6b;
+  --inferix-accent-900: #0c0a32;
+
+  /* ——— Colour: semantic (harmonized with cool neutrals) ——— */
+  --inferix-success: #1b7f4e;
+  --inferix-success-soft: #e8f6ee;
+  --inferix-warn: #b86e00;
+  --inferix-warn-soft: #fff4e0;
+  --inferix-danger: #c0392b;
+  --inferix-danger-soft: #fdecea;
+  --inferix-focus: #5b3fd1;
+
+  /* ——— Colour: chart series ——— */
+  --inferix-chart-1: #5b3fd1;
+  --inferix-chart-2: #0c0a32;
+  --inferix-chart-3: #c4892a;
+  --inferix-chart-4: #63666f;
+  --inferix-chart-5: #7c6cf0;
+  --inferix-chart-6: #b8a8ff;
+
+  /* ——— Typography families ——— */
+  /* Wordmark only — headlines/UI use Plus Jakarta Sans (LiteLLM-classy sans) */
+  --inferix-font-brand: "Fraunces", Georgia, "Times New Roman", serif;
+  --inferix-font-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --inferix-font-ui: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --inferix-font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* ——— Type ramp (size / line-height / weight) ——— */
+  --inferix-text-brand: 48px / 1.1;
+  --inferix-text-display: 40px / 1.15;
+  --inferix-text-h1: 32px / 1.2;
+  --inferix-text-h2: 24px / 1.25;
+  --inferix-text-h3: 18px / 1.35;
+  --inferix-text-body: 16px / 1.55;
+  --inferix-text-body-sm: 14px / 1.5;
+  --inferix-text-caption: 12px / 1.4;
+  --inferix-text-label: 12px / 1.3;
+  --inferix-text-code: 13px / 1.5;
+
+  --inferix-weight-regular: 400;
+  --inferix-weight-medium: 500;
+  --inferix-weight-semibold: 600;
+  --inferix-weight-bold: 700;
+
+  /* ——— Space scale ——— */
+  --inferix-space-1: 4px;
+  --inferix-space-2: 8px;
+  --inferix-space-3: 12px;
+  --inferix-space-4: 16px;
+  --inferix-space-5: 24px;
+  --inferix-space-6: 32px;
+  --inferix-space-7: 48px;
+  --inferix-space-8: 64px;
+
+  /* ——— Radius ——— */
+  --inferix-radius-sm: 4px;
+  --inferix-radius-md: 8px;
+  --inferix-radius-lg: 12px;
+  --inferix-radius-xl: 16px;
+  --inferix-radius-full: 9999px;
+
+  /* ——— Elevation (Lab Light — soft, single-layer) ——— */
+  --inferix-shadow-sm: 0 1px 2px rgba(39, 43, 55, 0.04);
+  --inferix-shadow-md: 0 4px 16px rgba(39, 43, 55, 0.06);
+  --inferix-shadow-lg: 0 12px 32px rgba(39, 43, 55, 0.08);
+
+  /* ——— Motion ——— */
+  --inferix-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --inferix-duration-fast: 150ms;
+  --inferix-duration: 240ms;
+  --inferix-duration-slow: 400ms;
+
+  /* ——— Iconography ——— */
+  --inferix-icon-stroke: 1.5px;
+  --inferix-icon-size-sm: 16px;
+  --inferix-icon-size-md: 20px;
+  --inferix-icon-size-lg: 24px;
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 88" fill="none" role="img" aria-label="Inferix">
+  <rect width="40" height="40" x="28" y="0" rx="10" fill="#5B3FD1"/>
+  <rect x="36.5" y="22.5" width="4.5" height="9" rx="1.2" fill="#FFFFFF"/>
+  <rect x="43.25" y="16" width="4.5" height="15.5" rx="1.2" fill="#FFFFFF"/>
+  <rect x="50" y="11" width="4.5" height="20.5" rx="1.2" fill="#FFFFFF"/>
+  <rect x="56.75" y="18" width="4.5" height="13.5" rx="1.2" fill="#FFFFFF" opacity="0.55"/>
+  <text x="48" y="72" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="700" fill="#272B37" letter-spacing="-0.02em">Inferix</text>
+</svg>

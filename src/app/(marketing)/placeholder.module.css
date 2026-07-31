@@ -1,0 +1,22 @@
+.page {
+  padding: 72px 0 96px;
+}
+
+.title {
+  margin: 0 0 14px;
+  font-family: var(--inferix-font-brand), Georgia, serif;
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--inferix-ink, #272b37);
+  max-width: 640px;
+}
+
+.lead {
+  margin: 0 0 28px;
+  max-width: 520px;
+  color: var(--inferix-muted, #63666f);
+  font-size: 17px;
+  line-height: 1.55;
+}

@@ -1,0 +1,312 @@
+.root {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(120px, 0.8fr) 48px minmax(210px, 1.1fr) 48px minmax(240px, 1.35fr);
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  max-width: 100%;
+  padding: 28px 20px;
+  border: 1px solid var(--inferix-line, #d3d3d5);
+  border-radius: var(--inferix-radius-xl, 16px);
+  /* Opaque soft panel — no transparent wash that lets page gradients show as a purple patch */
+  background: #ffffff;
+  background: var(--inferix-surface, #ffffff);
+  box-shadow: var(--inferix-shadow-md, 0 4px 16px rgba(39, 43, 55, 0.06));
+  overflow: visible;
+}
+
+.col {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--inferix-space-3);
+  min-width: 0;
+  align-self: stretch;
+  justify-content: center;
+}
+
+.colLabel {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--inferix-muted);
+}
+
+.sourceList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sourceCard {
+  display: flex;
+  align-items: center;
+  gap: var(--inferix-space-3);
+  padding: 11px 12px;
+  border: 1px solid var(--inferix-line);
+  border-radius: var(--inferix-radius-full);
+  background: var(--inferix-bg);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--inferix-ink);
+  box-shadow: var(--inferix-shadow-sm);
+}
+
+.sourceIcon {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--inferix-radius-full);
+  background: var(--inferix-accent-soft);
+  color: var(--inferix-accent);
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--inferix-font-mono);
+  flex-shrink: 0;
+}
+
+.connectors {
+  position: relative;
+  z-index: 1;
+  width: 48px;
+  height: 280px;
+  align-self: center;
+}
+
+.connectorSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.wire {
+  fill: none;
+  stroke: var(--inferix-accent-muted, #9b8ae8);
+  stroke-width: 1.5;
+  opacity: 0.55;
+}
+
+/* HTML rings stay circular — SVG circles distort under preserveAspectRatio="none" */
+.ball {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 1.75px solid var(--inferix-accent, #5b3fd1);
+  background: transparent;
+  offset-anchor: center;
+  offset-rotate: 0deg;
+  animation: hiw-ball 2.8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes hiw-ball {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ball {
+    animation: none;
+    display: none;
+  }
+}
+
+.hub {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+}
+
+.hubCard {
+  padding: 20px 18px;
+  border: 1px solid var(--inferix-line);
+  border-radius: var(--inferix-radius-xl);
+  background: var(--inferix-surface);
+  box-shadow: var(--inferix-shadow-lg);
+}
+
+.hubBrand {
+  display: flex;
+  align-items: center;
+  gap: var(--inferix-space-3);
+  margin-bottom: var(--inferix-space-4);
+}
+
+.hubName {
+  margin: 0;
+  font-family: var(--inferix-font-brand);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--inferix-ink);
+  line-height: 1.1;
+}
+
+.hubTag {
+  margin: 4px 0 0;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--inferix-accent);
+}
+
+.pills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pill {
+  padding: 8px 12px;
+  border-radius: var(--inferix-radius-full);
+  border: 1px solid var(--inferix-line);
+  background: var(--inferix-bg);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--inferix-muted);
+  text-align: center;
+  transition:
+    color var(--inferix-duration) var(--inferix-ease),
+    background var(--inferix-duration) var(--inferix-ease),
+    border-color var(--inferix-duration) var(--inferix-ease),
+    box-shadow var(--inferix-duration) var(--inferix-ease);
+}
+
+.pillLit {
+  color: var(--inferix-accent);
+  background: var(--inferix-accent-soft);
+  border-color: var(--inferix-accent-muted);
+  box-shadow: 0 0 0 1px var(--inferix-accent-soft), 0 0 18px var(--inferix-accent-glow);
+}
+
+.destStack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.destCard {
+  padding: 10px 12px;
+  border: 1px solid var(--inferix-line);
+  border-radius: var(--inferix-radius-lg);
+  background: var(--inferix-bg);
+  box-shadow: var(--inferix-shadow-sm);
+}
+
+.destTitle {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--inferix-ink);
+}
+
+.logoGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.logoCell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 5px 6px;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--inferix-line) 70%, transparent);
+  background: var(--inferix-surface);
+  color: var(--inferix-ink);
+}
+
+.logoCell img {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  opacity: 1;
+}
+
+.logoName {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--inferix-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 1200px) {
+  .logoName {
+    display: none;
+  }
+
+  .logoCell {
+    justify-content: center;
+    padding: 7px 4px;
+  }
+}
+
+@media (max-width: 900px) {
+  .root {
+    grid-template-columns: 1fr;
+    gap: var(--inferix-space-4);
+    overflow: hidden;
+  }
+
+  .connectors {
+    display: none;
+  }
+
+  .hub {
+    order: -1;
+  }
+
+  .pills {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .logoName {
+    display: inline;
+  }
+
+  .logoGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .logoCell {
+    justify-content: flex-start;
+  }
+}

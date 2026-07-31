@@ -1,0 +1,31 @@
+.lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--inferix-ink);
+}
+
+.lockup:hover {
+  color: var(--inferix-ink);
+  text-decoration: none;
+}
+
+.lockup img {
+  flex-shrink: 0;
+}
+
+.wordmark {
+  font-family: var(--inferix-font-brand);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.sm .wordmark {
+  font-size: 20px;
+}
+
+.md .wordmark {
+  font-size: 26px;
+}
