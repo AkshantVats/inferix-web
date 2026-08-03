@@ -83,8 +83,9 @@ export default function HomePage() {
         <div className={m.wrap}>
           <p className={m.kicker}>Why Inferix</p>
           <h2 id="why-heading" className={styles.whyTitle}>
-            Give your whole org control of agents and inference — then{" "}
-            <span className={m.accent}>see, route, and improve</span> every request.
+            The AI Control Plane for{" "}
+            <span className={m.accent}>monitoring, routing, and optimizing</span> every
+            inference across your organization.
           </h2>
 
           <WhyLoopSection />

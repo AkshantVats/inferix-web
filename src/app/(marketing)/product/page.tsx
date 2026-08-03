@@ -40,8 +40,9 @@ export default function ProductPage() {
         <div className={m.wrap}>
           <p className={m.kicker}>Why Inferix</p>
           <h2 id="why-heading" className={m.h2}>
-            Give your whole org control — then{" "}
-            <span className={m.accent}>see, route, and improve</span> every request.
+            The AI Control Plane for{" "}
+            <span className={m.accent}>monitoring, routing, and optimizing</span> every
+            inference across your organization.
           </h2>
           <ul className={styles.whyGrid}>
             {WHY_PILLARS.map((p) => (
