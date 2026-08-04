@@ -20,27 +20,24 @@ const MARQUEE = [
   "AI product teams",
 ] as const;
 
-/** Homepage proof strip — see brand/METRICS.md. Never mix measured vs target. */
-const PROOF_METRICS = [
+/** Homepage metrics — product outcomes only. See brand/METRICS.md. */
+const PRODUCT_METRICS = [
   {
     value: "5",
-    label: "Products · one observe → route → drift → retrain loop",
-    kind: "Proven",
+    label: "Products in one loop · observe · trace · route · drift · retrain",
   },
   {
     value: "~15 min",
-    label: "First LensAI dashboard · clone → build → make up → Grafana",
-    kind: "Typical first run",
+    label: "Self-host to first LensAI dashboard on your laptop",
   },
   {
     value: "<100 ms",
-    label: "Ingest P99 · accept + WAL + enqueue (not CH visibility)",
-    kind: "Design target",
+    label: "Ingest P99 target · accept + WAL + enqueue",
+    kind: "Target",
   },
   {
-    value: "5 modes",
-    label: "Chaos paths · Kafka/CH/Redis/OOM — no silent drop",
-    kind: "Documented",
+    value: "tenant × model",
+    label: "Cost, latency, and errors attributed where the work runs",
   },
 ] as const;
 
@@ -195,20 +192,21 @@ export default function HomePage() {
             <span className={styles.targetsDot} aria-hidden />
           </p>
           <h2 id="targets-heading" className={styles.targetsTitle}>
-            <span className={styles.targetsAccent}>What we prove today.</span>
+            <span className={styles.targetsAccent}>See, route, and improve</span>
             <br />
-            Honest numbers for an open control plane.
+            every inference — in one plane.
           </h2>
           <p className={styles.targetsLead}>
-            Buyers and interviewers should be able to verify every claim. Measured and documented
-            facts sit next to labeled design targets — never mixed as race results.
+            Attribute spend, debug a bad agent run, send easy work to owned models, and close the
+            quality loop when answers drift — without another silo next to your gateway.
           </p>
-          <p className={styles.targetsBadge}>Proven · documented · design targets only where labeled</p>
 
           <ul className={styles.metricRow}>
-            {PROOF_METRICS.map((metric) => (
+            {PRODUCT_METRICS.map((metric) => (
               <li key={metric.label} className={styles.metricCard}>
-                <p className={styles.metricKind}>{metric.kind}</p>
+                {"kind" in metric && metric.kind ? (
+                  <p className={styles.metricKind}>{metric.kind}</p>
+                ) : null}
                 <p className={styles.metricValue}>{metric.value}</p>
                 <p className={styles.metricLabel}>{metric.label}</p>
               </li>
@@ -216,66 +214,32 @@ export default function HomePage() {
           </ul>
 
           <div className={styles.chartRow}>
-            <article className={styles.chartCard}>
-              <h3 className={styles.chartTitle}>What ships and is checkable</h3>
-              <ul className={styles.proofList}>
-                <li>
-                  <strong>LensAI path</strong> — Rust ingest → Kafka → ClickHouse → Grafana; chaos
-                  scripts and BENCHMARKS in{" "}
-                  <a href={GITHUB.streaming} target="_blank" rel="noreferrer">
-                    infra-ai-streaming
-                  </a>
-                </li>
-                <li>
-                  <strong>Quickstart</strong> —{" "}
-                  <a href={GITHUB.lensai} target="_blank" rel="noreferrer">
-                    lensai-integration
-                  </a>{" "}
-                  <code>make build && make up</code> → Grafana :3000
-                </li>
-                <li>
-                  <strong>TraceForge collector</strong> — active work in{" "}
-                  <a href={GITHUB.traceforge} target="_blank" rel="noreferrer">
-                    agent-trace-collector
-                  </a>
-                </li>
-                <li>
-                  <strong>Suite map</strong> —{" "}
-                  <a href={GITHUB.suite} target="_blank" rel="noreferrer">
-                    inferix
-                  </a>{" "}
-                  links all five products
-                </li>
-              </ul>
-            </article>
-
-            <article className={styles.chartCard}>
-              <h3 className={styles.chartTitle}>Design targets — not suite SLOs yet</h3>
+            <article className={`${styles.chartCard} ${styles.chartCardWide}`}>
+              <h3 className={styles.chartTitle}>Control-plane targets</h3>
               <ul className={styles.proofList}>
                 <li>
                   <strong>Ingest</strong> — P99 &lt;100 ms at accept + WAL + enqueue; 1M events/min
-                  eng target (k6 lock pending)
+                  engineering target for the LensAI path
                 </li>
                 <li>
-                  <strong>RouteIQ</strong> — policy decision overhead target &lt;2 ms when the router
-                  ships measured benches
+                  <strong>RouteIQ</strong> — policy decision overhead &lt;2 ms so routing stays off
+                  the critical path
                 </li>
                 <li>
-                  <strong>DriftWatch</strong> — time-to-detect target &lt;5 min once judge/shadow
-                  path is measured
+                  <strong>DriftWatch</strong> — alert when quality slips vs teacher / golden set
+                  before tickets pile up (time-to-detect target &lt;5 min)
                 </li>
                 <li>
-                  <strong>Cost attribution</strong> — by tenant / model / agent when labels are
-                  present; fail-closed on missing tenant is the policy direction
+                  <strong>Attribution</strong> — cost and latency by tenant, model, and agent — fail
+                  closed when tenant is missing
                 </li>
               </ul>
             </article>
           </div>
 
           <p className={styles.targetsFoot}>
-            No vendor bake-offs on this page. Founder production scale (1.5T events/day TSDB, 7M+
-            sensors, etc.) is prior work — not an Inferix hosted-load claim. See{" "}
-            <code>brand/METRICS.md</code>.
+            Targets describe how the plane is designed to behave. Published benches land in the
+            open repos as they ship.
           </p>
         </div>
       </section>

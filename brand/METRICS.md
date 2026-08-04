@@ -15,10 +15,14 @@ Numbers on marketing pages are trust assets. Wrong numbers cost more than missin
 
 ## Locked homepage tiles (2026-08)
 
-1. **5 products** — Proven  
-2. **~15 min first LensAI dashboard** — Typical first run (`lensai-integration`: `make build` ~5 min + `make up` + Grafana). Re-time on a clean laptop before tightening.  
-3. **&lt;100 ms ingest P99** — Design target (accept + WAL + enqueue; see `infra-ai-streaming` BENCHMARKS)  
-4. **5 chaos modes** — Documented (`CHAOS.md`)
+Product outcomes (LiteLLM-style — what the plane does for operators):
+
+1. **5 products** — one observe → retrain loop  
+2. **~15 min** — self-host to first LensAI dashboard  
+3. **&lt;100 ms** ingest P99 — labeled **Target**  
+4. **tenant × model** — attribution where work runs  
+
+Plus one **Control-plane targets** card (RouteIQ / DriftWatch / attribution policy). No audience labels (“buyers”, “interviewers”). No “checkable for review” sections.
 
 ## Forbidden until measured + published
 
