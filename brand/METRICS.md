@@ -15,14 +15,18 @@ Numbers on marketing pages are trust assets. Wrong numbers cost more than missin
 
 ## Locked homepage tiles (2026-08)
 
-Product outcomes (LiteLLM-style — what the plane does for operators):
+Langfuse-shaped **scale strip**, every tile labeled **Target** (we do not have live cloud stats):
 
-1. **5 products** — one observe → retrain loop  
-2. **~15 min** — self-host to first LensAI dashboard  
-3. **&lt;100 ms** ingest P99 — labeled **Target**  
-4. **tenant × model** — attribution where work runs  
+| Tile | Meaning |
+|------|---------|
+| **Billions+** observations / month | Platform scale target (same *unit* Langfuse uses — monthly observations — not events/min) |
+| **&lt;100 ms** ingest P99 | Latency target at accept + WAL + enqueue |
+| **Minutes** to first dashboard | Deploy / self-host target |
+| **1 plane** | Agents + owned models · full loop |
 
-Plus one **Control-plane targets** card (RouteIQ / DriftWatch / attribution policy). No audience labels (“buyers”, “interviewers”). No “checkable for review” sections.
+Detail card: what scale means (observations, RouteIQ, DriftWatch, attribution).  
+**Do not** invent customer counts or “N of Fortune 50” until true.  
+**Do not** lead with `1M events/min` on the site.
 
 ## Forbidden until measured + published
 
@@ -32,7 +36,9 @@ Plus one **Control-plane targets** card (RouteIQ / DriftWatch / attribution poli
 - `100%` cost attribution as a fact  
 - Vendor bake-off bars (vs Portkey / Langfuse / logs-only with fake minutes)  
 - Customer counts, ARR, “used by N companies”  
-- Inferix hosting 1.5T events/day (that is Agoda prior work)
+- Inferix hosting 1.5T events/day (that is Agoda prior work)  
+- `1M events/min` as a homepage headline (wrong unit vs peers; keep eng docs only if needed)  
+- Fake “N customers” / Fortune logos as targets that look like claims
 
 ## Audience cheat sheet
 

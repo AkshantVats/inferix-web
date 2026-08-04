@@ -20,24 +20,30 @@ const MARQUEE = [
   "AI product teams",
 ] as const;
 
-/** Homepage metrics — product outcomes only. See brand/METRICS.md. */
-const PRODUCT_METRICS = [
+/**
+ * Langfuse-style scale strip — labeled TARGETS (we do not have cloud volume yet).
+ * See brand/METRICS.md.
+ */
+const SCALE_TARGETS = [
   {
-    value: "5",
-    label: "Products in one loop · observe · trace · route · drift · retrain",
-  },
-  {
-    value: "~15 min",
-    label: "Self-host to first LensAI dashboard on your laptop",
-  },
-  {
-    value: "<100 ms",
-    label: "Ingest P99 target · accept + WAL + enqueue",
+    value: "Billions+",
+    label: "Observations / month · platform scale",
     kind: "Target",
   },
   {
-    value: "tenant × model",
-    label: "Cost, latency, and errors attributed where the work runs",
+    value: "<100 ms",
+    label: "Ingest P99 · accept + WAL + enqueue",
+    kind: "Target",
+  },
+  {
+    value: "Minutes",
+    label: "Self-host to first dashboard · your laptop or VPC",
+    kind: "Target",
+  },
+  {
+    value: "1 plane",
+    label: "Agents + owned models · observe · route · drift · retrain",
+    kind: "Target",
   },
 ] as const;
 
@@ -192,21 +198,21 @@ export default function HomePage() {
             <span className={styles.targetsDot} aria-hidden />
           </p>
           <h2 id="targets-heading" className={styles.targetsTitle}>
-            <span className={styles.targetsAccent}>See, route, and improve</span>
+            <span className={styles.targetsAccent}>Enterprise scale.</span>
             <br />
-            every inference — in one plane.
+            These are our targets.
           </h2>
           <p className={styles.targetsLead}>
-            Attribute spend, debug a bad agent run, send easy work to owned models, and close the
-            quality loop when answers drift — without another silo next to your gateway.
+            Same shape of ambition as mature LLM platforms — volume, latency, deploy speed, and one
+            plane for agents and models. Labeled targets until published production numbers replace
+            them.
           </p>
+          <p className={styles.targetsBadge}>Platform targets · not live cloud stats</p>
 
           <ul className={styles.metricRow}>
-            {PRODUCT_METRICS.map((metric) => (
+            {SCALE_TARGETS.map((metric) => (
               <li key={metric.label} className={styles.metricCard}>
-                {"kind" in metric && metric.kind ? (
-                  <p className={styles.metricKind}>{metric.kind}</p>
-                ) : null}
+                <p className={styles.metricKind}>{metric.kind}</p>
                 <p className={styles.metricValue}>{metric.value}</p>
                 <p className={styles.metricLabel}>{metric.label}</p>
               </li>
@@ -215,19 +221,24 @@ export default function HomePage() {
 
           <div className={styles.chartRow}>
             <article className={`${styles.chartCard} ${styles.chartCardWide}`}>
-              <h3 className={styles.chartTitle}>Control-plane targets</h3>
+              <h3 className={styles.chartTitle}>What “scale” means for Inferix</h3>
               <ul className={styles.proofList}>
                 <li>
-                  <strong>Ingest</strong> — P99 &lt;100 ms at accept + WAL + enqueue; 1M events/min
-                  engineering target for the LensAI path
+                  <strong>Observations</strong> — design for billions of inference and agent
+                  observations per month across the platform (Langfuse-class monthly volume), not a
+                  vanity events/min headline
                 </li>
                 <li>
-                  <strong>RouteIQ</strong> — policy decision overhead &lt;2 ms so routing stays off
-                  the critical path
+                  <strong>Ingest</strong> — P99 &lt;100 ms at accept + WAL + enqueue so the plane
+                  stays off the critical path of your apps
                 </li>
                 <li>
-                  <strong>DriftWatch</strong> — alert when quality slips vs teacher / golden set
-                  before tickets pile up (time-to-detect target &lt;5 min)
+                  <strong>RouteIQ</strong> — policy decision overhead &lt;2 ms when the router is
+                  measured
+                </li>
+                <li>
+                  <strong>DriftWatch</strong> — catch quality drift vs teacher / golden set before
+                  tickets pile up (time-to-detect target &lt;5 min)
                 </li>
                 <li>
                   <strong>Attribution</strong> — cost and latency by tenant, model, and agent — fail
@@ -238,8 +249,8 @@ export default function HomePage() {
           </div>
 
           <p className={styles.targetsFoot}>
-            Targets describe how the plane is designed to behave. Published benches land in the
-            open repos as they ship.
+            When a target is proven in the open repos, the label upgrades from Target to a measured
+            number. We do not invent customer counts or Fortune logos.
           </p>
         </div>
       </section>
