@@ -244,7 +244,10 @@ export default function WhyLoopSection() {
                 <p className={styles.whyPanelTitle}>{pillar.panel.title}</p>
                 <p className={styles.whyPanelSub}>{pillar.panel.subtitle}</p>
               </div>
-              <span className={styles.whyPanelStatus}>{pillar.panel.status}</span>
+              <div className={styles.whyPanelHeadRight}>
+                <span className={styles.whyPanelExample}>Example UI</span>
+                <span className={styles.whyPanelStatus}>{pillar.panel.status}</span>
+              </div>
             </div>
             <div className={styles.whyPanelStats}>
               {pillar.panel.stats.map((s) => (

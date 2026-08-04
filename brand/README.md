@@ -28,7 +28,7 @@ LiteLLM-inspired Lab Light: soft lavender canvas (`#F4F3FB`), white surfaces, ch
 | Type | Fraunces + Geist + mono |
 | Space | Spacing, radius, elevation |
 | Icons | Stroke rules + product placeholders |
-| Voice | Positioning, tone, name lock |
+| Voice | Positioning, tone, name lock · **`METRICS.md`** (what numbers may appear on the site) |
 | Motion | Principles (150–400ms ease) |
 
 ## Product diagram (HIW) — brand component, not marketing site

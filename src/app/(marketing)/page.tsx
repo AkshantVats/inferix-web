@@ -20,11 +20,28 @@ const MARQUEE = [
   "AI product teams",
 ] as const;
 
-const DESIGN_METRICS = [
-  { value: "<50 ms", label: "Trace ingest lag · p99 target" },
-  { value: "100%", label: "Cost attribution coverage target" },
-  { value: "<5 min", label: "Drift alert time-to-detect target" },
-  { value: "<2 ms", label: "Route decision overhead target" },
+/** Homepage proof strip — see brand/METRICS.md. Never mix measured vs target. */
+const PROOF_METRICS = [
+  {
+    value: "5",
+    label: "Products · one observe → route → drift → retrain loop",
+    kind: "Proven",
+  },
+  {
+    value: "~15 min",
+    label: "First LensAI dashboard · clone → build → make up → Grafana",
+    kind: "Typical first run",
+  },
+  {
+    value: "<100 ms",
+    label: "Ingest P99 · accept + WAL + enqueue (not CH visibility)",
+    kind: "Design target",
+  },
+  {
+    value: "5 modes",
+    label: "Chaos paths · Kafka/CH/Redis/OOM — no silent drop",
+    kind: "Documented",
+  },
 ] as const;
 
 export default function HomePage() {
@@ -178,19 +195,20 @@ export default function HomePage() {
             <span className={styles.targetsDot} aria-hidden />
           </p>
           <h2 id="targets-heading" className={styles.targetsTitle}>
-            <span className={styles.targetsAccent}>What Inferix measures.</span>
+            <span className={styles.targetsAccent}>What we prove today.</span>
             <br />
-            Design targets for the open suite.
+            Honest numbers for an open control plane.
           </h2>
           <p className={styles.targetsLead}>
-            These are control-plane KPIs we design for — not published race results. Production
-            numbers ship with the open benchmark suite.
+            Buyers and interviewers should be able to verify every claim. Measured and documented
+            facts sit next to labeled design targets — never mixed as race results.
           </p>
-          <p className={styles.targetsBadge}>Design targets · not shipped benchmarks</p>
+          <p className={styles.targetsBadge}>Proven · documented · design targets only where labeled</p>
 
           <ul className={styles.metricRow}>
-            {DESIGN_METRICS.map((metric) => (
+            {PROOF_METRICS.map((metric) => (
               <li key={metric.label} className={styles.metricCard}>
+                <p className={styles.metricKind}>{metric.kind}</p>
                 <p className={styles.metricValue}>{metric.value}</p>
                 <p className={styles.metricLabel}>{metric.label}</p>
               </li>
@@ -199,74 +217,65 @@ export default function HomePage() {
 
           <div className={styles.chartRow}>
             <article className={styles.chartCard}>
-              <h3 className={styles.chartTitle}>
-                Time to find a bad agent run — minutes (lower is better)
-              </h3>
-              <ul className={styles.bars}>
+              <h3 className={styles.chartTitle}>What ships and is checkable</h3>
+              <ul className={styles.proofList}>
                 <li>
-                  <span className={styles.barLabel}>Inferix traces</span>
-                  <span className={styles.barTrack}>
-                    <span className={`${styles.barFill} ${styles.barWin}`} style={{ width: "18%" }} />
-                  </span>
-                  <span className={styles.barValue}>~2 min</span>
+                  <strong>LensAI path</strong> — Rust ingest → Kafka → ClickHouse → Grafana; chaos
+                  scripts and BENCHMARKS in{" "}
+                  <a href={GITHUB.streaming} target="_blank" rel="noreferrer">
+                    infra-ai-streaming
+                  </a>
                 </li>
                 <li>
-                  <span className={styles.barLabel}>Logs only</span>
-                  <span className={styles.barTrack}>
-                    <span className={styles.barFill} style={{ width: "55%" }} />
-                  </span>
-                  <span className={styles.barValue}>~25 min</span>
+                  <strong>Quickstart</strong> —{" "}
+                  <a href={GITHUB.lensai} target="_blank" rel="noreferrer">
+                    lensai-integration
+                  </a>{" "}
+                  <code>make build && make up</code> → Grafana :3000
                 </li>
                 <li>
-                  <span className={styles.barLabel}>Spreadsheet ops</span>
-                  <span className={styles.barTrack}>
-                    <span className={styles.barFill} style={{ width: "92%" }} />
-                  </span>
-                  <span className={styles.barValue}>hours+</span>
+                  <strong>TraceForge collector</strong> — active work in{" "}
+                  <a href={GITHUB.traceforge} target="_blank" rel="noreferrer">
+                    agent-trace-collector
+                  </a>
+                </li>
+                <li>
+                  <strong>Suite map</strong> —{" "}
+                  <a href={GITHUB.suite} target="_blank" rel="noreferrer">
+                    inferix
+                  </a>{" "}
+                  links all five products
                 </li>
               </ul>
-              <p className={styles.chartNote}>
-                Illustrative comparison of workflows — not a lab benchmark against other vendors.
-              </p>
             </article>
 
             <article className={styles.chartCard}>
-              <h3 className={styles.chartTitle}>
-                Route decision overhead — ms added (lower is better)
-              </h3>
-              <ul className={styles.bars}>
+              <h3 className={styles.chartTitle}>Design targets — not suite SLOs yet</h3>
+              <ul className={styles.proofList}>
                 <li>
-                  <span className={styles.barLabel}>Inferix RouteIQ · target</span>
-                  <span className={styles.barTrack}>
-                    <span className={`${styles.barFill} ${styles.barWin}`} style={{ width: "14%" }} />
-                  </span>
-                  <span className={styles.barValue}>&lt;2 ms</span>
+                  <strong>Ingest</strong> — P99 &lt;100 ms at accept + WAL + enqueue; 1M events/min
+                  eng target (k6 lock pending)
                 </li>
                 <li>
-                  <span className={styles.barLabel}>Ad-hoc app if/else</span>
-                  <span className={styles.barTrack}>
-                    <span className={styles.barFill} style={{ width: "48%" }} />
-                  </span>
-                  <span className={styles.barValue}>10–40 ms</span>
+                  <strong>RouteIQ</strong> — policy decision overhead target &lt;2 ms when the router
+                  ships measured benches
                 </li>
                 <li>
-                  <span className={styles.barLabel}>Manual triage queue</span>
-                  <span className={styles.barTrack}>
-                    <span className={styles.barFill} style={{ width: "88%" }} />
-                  </span>
-                  <span className={styles.barValue}>human delay</span>
+                  <strong>DriftWatch</strong> — time-to-detect target &lt;5 min once judge/shadow
+                  path is measured
+                </li>
+                <li>
+                  <strong>Cost attribution</strong> — by tenant / model / agent when labels are
+                  present; fail-closed on missing tenant is the policy direction
                 </li>
               </ul>
-              <p className={styles.chartNote}>
-                Target vs typical agent-stack approaches. Live measurements publish with the open
-                suite.
-              </p>
             </article>
           </div>
 
           <p className={styles.targetsFoot}>
-            Illustrative layout — production benchmarks publish with the open suite. Numbers above
-            are design targets and workflow contrasts, not claimed wins over named gateways.
+            No vendor bake-offs on this page. Founder production scale (1.5T events/day TSDB, 7M+
+            sensors, etc.) is prior work — not an Inferix hosted-load claim. See{" "}
+            <code>brand/METRICS.md</code>.
           </p>
         </div>
       </section>

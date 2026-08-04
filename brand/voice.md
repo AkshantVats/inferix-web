@@ -31,6 +31,7 @@ Clear. Infra-credible. Operator-facing. Competitor-quality clarity (LiteLLM / La
 - Say what it is, who it’s for, what you get — in plain English.
 - Short sentences. Docs-adjacent. No buzzword salad.
 - Lead with control-plane value (observe · route · drift · retrain). Never lead with “OpenAI-compatible.”
+- **Numbers:** follow `brand/METRICS.md`. Never put unmeasured SLOs next to proven facts without a label.
 
 ## Words to use
 
